@@ -66,11 +66,16 @@ export class LoginComponent implements OnInit {
         // localStorage.setItem("userId",this.clientIfo.id)
         // localStorage.setItem("orgaId",this.client.organization.data.id)
 
-      
+        localStorage.setItem('userId', this.clientIfo.id);
+    localStorage.setItem('orgaId', this.client.organization.data.id);
+    console.log(this.client.organization.data)
+    console.log(this.client.lastName)
+
+    localStorage.setItem('username', this.client.lastName);
       console.log(this.client.organization.data.name)     
     //  this.sendData();
       this.islogged.setIsLoggedIn(true);
-      this.router.navigate(['menu'], {queryParams:{userId:this.clientIfo.id, orgaId:this.client.organization.data.id}}); // Redirect to home on successful login
+      this.router.navigate(['menu']); // Redirect to home on successful login
 
     } else {
       localStorage.setItem("user","0")

@@ -27,7 +27,7 @@
         
         <!-- User information -->
         <div class="navbar-text fw-bold" >
-          <span class="me-2">Welcome, Username</span>
+          <span class="me-2">Welcome, {{username  | uppercase }}</span>
           <a href="#" class="me-2"><i class="bi bi-person"></i></a> <!-- Replace with user icon -->
           <a href="#" class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</a>
         </div>
