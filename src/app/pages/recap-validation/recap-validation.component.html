@@ -33,6 +33,13 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close" (click)="close()">&times;</span>
-    <p>Some text in the Modal..</p>
+    <div class="modal-body">
+      <h2>Are you sure you want to confirm the selection?</h2>
+      <p>Make sure you have selected the right items.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="cancelSelection()">Cancel</button>
+      <button class="btn btn-primary" (click)="confirmSelection()">Confirm</button>
+    </div>
   </div>
 </div>

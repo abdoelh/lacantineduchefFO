@@ -162,7 +162,11 @@ if (this.selectedSalades !== null) {
       width: '45%',
       disableClose: true,
       autoFocus: false,
-      data: selectedItems,
+      data:{
+        selectedItems:selectedItems,
+        title:"Menu Collectif",
+
+      }
     });
 
     dialogRef.afterClosed().subscribe((rows: any[]) => {
