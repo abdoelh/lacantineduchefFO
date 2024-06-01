@@ -1,0 +1,38 @@
+<section class="position-relative">
+
+    <div class="blurry-background"></div>
+    <div class="container mt-5">
+        <h1 style="font-weight: bolder;">Pokeball</h1>
+
+      <div class="card" style="border-radius: 1rem;">
+        
+        <div class="tab-content" id="menuTabContent">
+          <div class="tab-pane fade show active" id="pokeBall" role="tabpanel" aria-labelledby="pokeBall-tab">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let item of pokeBall; let i = index">
+                <div class="card mb-4 shadow-sm">
+                  <img class="card-img-top" [src]="host + item.image.data.attributes.url" alt="pokeBall image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.titre }}</h5>
+                    <p class="card-text">{{ item.Description }}</p>
+                    <button class="btn btn-primary addButton" 
+                    (click)="toggleSelection( i)"
+                      [class.btn-danger]="isItemSelected(i)">
+                      {{ isItemSelected( i) ? 'Cancel' : 'Select' }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center" id="submit">
+            <button class="btn btn-primary " (click)="submitForm()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

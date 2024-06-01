@@ -5,6 +5,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { authGuard } from './guards/auth.guard';
 import { GrandMenuComponent } from './pages/grand-menu/grand-menu.component';
 import { NgModule } from '@angular/core';
+import { PokeballComponent } from './pages/pokeball/pokeball.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent},
@@ -12,7 +13,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'menu', component: MenuComponent, canActivate: [authGuard] },
     { path: 'grand-menu', component: GrandMenuComponent, canActivate: [authGuard] },
-
+    { path: 'pokeball', component: PokeballComponent, canActivate: [authGuard] },
     { path: '**', redirectTo: 'login' } // Redirect all unknown routes to login
 
 ];

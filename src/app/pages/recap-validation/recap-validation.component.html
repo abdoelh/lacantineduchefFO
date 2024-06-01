@@ -26,6 +26,12 @@
         <li class="list-group-item" *ngFor="let dessert of dessertSelected">{{ dessert }}</li>
       </ul>
     </div>
+    <div *ngIf="pokeballSelected?.length">
+      <h3 class="font-weight-bold text-danger blur-background"></h3>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let pokeball of pokeballSelected">{{ pokeball }}</li>
+      </ul>
+    </div>
   </div>
 
   <div class="text-center mt-4">

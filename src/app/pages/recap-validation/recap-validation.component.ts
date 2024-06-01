@@ -14,15 +14,22 @@ export class RecapValidationComponent implements OnInit {
   saladeSelected: string[] = [];
   platsSelected: string[] = [];
   dessertSelected: string[] = [];
+  pokeballSelected: string[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<RecapValidationComponent>) { }
 
   ngOnInit(): void {
-    if (this.data && this.data.selectedItems) {
-      this.saladeSelected = this.data.selectedItems.salades || [];
-      this.platsSelected = this.data.selectedItems.plats || [];
-      this.dessertSelected = this.data.selectedItems.desserts || [];
+    if(this.data.title==="Poke Ball"){
+      this.pokeballSelected =  this.data.selectedItems.pokeBall;
+      console.log(this.pokeballSelected)
+    }else{
+      if (this.data && this.data.selectedItems) {
+        this.saladeSelected = this.data.selectedItems.salades || [];
+        this.platsSelected = this.data.selectedItems.plats || [];
+        this.dessertSelected = this.data.selectedItems.desserts || [];
+      }
     }
+   
   }
 
   close(): void {
