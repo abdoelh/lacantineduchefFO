@@ -1,15 +1,20 @@
+<section class="position-relative">
+
+  <div class="blurry-background"></div>
 <div class="container mt-4 mb-4">
-  <h1 class="text-center mb-4">{{ data.title }}</h1>
+  <h1 class="text-center mb-4" style="font-weight: bold;">{{ data.title }}</h1>
   <div class="recap-container p-4 rounded shadow-sm bg-light">
     <div *ngIf="saladeSelected?.length">
-      <h3 class="font-weight-bold text-primary">Salades</h3>
+      <h3 class="font-weight-bold text-primary">
+        
+        Salades</h3>
       <ul class="list-group mb-3">
         <li class="list-group-item" *ngFor="let salade of saladeSelected">{{ salade }}</li>
       </ul>
     </div>
 
     <div *ngIf="platsSelected?.length">
-      <h3 class="font-weight-bold text-success">Plats</h3>
+      <h3 class="font-weight-bold text-success blur-background">Plats</h3>
       <ul class="list-group mb-3">
         <li class="list-group-item" *ngFor="let plat of platsSelected">{{ plat }}</li>
       </ul>
@@ -43,3 +48,4 @@
     </div>
   </div>
 </div>
+</section>

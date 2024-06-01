@@ -13,7 +13,7 @@
   }
   
   .nav-tabs .nav-link.active {
-    background-color: #007bff;
+    background-color: #25790c;
     color: white;
   }
   
@@ -108,6 +108,13 @@
     width: 150px;
     border: azure;
   }
+  #submit button {
+    color: white !important;
+    background-color: #154e15;
+    border: none;
+    width: 200px;
+    margin-bottom: 15px;
+}
   h5{
     font-weight: bold;
     font-size: 20px;

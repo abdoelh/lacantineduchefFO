@@ -39,11 +39,9 @@ export class MenuComponent implements OnInit {
   getClientData() {
     this.route.queryParamMap.subscribe(
       (params) => {
-        // this.idOrga = params.get('orgaId');
-        // this.userId = params.get('userId');
+     
         this.idOrga =localStorage.getItem('orgaId');
         this.userId = localStorage.getItem('userId');
-        // this.username = localStorage.getItem('username');
       }
     );
     console.log(this.idOrga);
