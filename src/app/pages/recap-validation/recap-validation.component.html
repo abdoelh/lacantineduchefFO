@@ -1,1 +1,38 @@
-<p>recap-validation works!</p>
+<div class="container mt-4 mb-4">
+  <h1 class="text-center mb-4">{{ data.title }}</h1>
+  <div class="recap-container p-4 rounded shadow-sm bg-light">
+    <div *ngIf="saladeSelected?.length">
+      <h3 class="font-weight-bold text-primary">Salades</h3>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let salade of saladeSelected">{{ salade }}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="platsSelected?.length">
+      <h3 class="font-weight-bold text-success">Plats</h3>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let plat of platsSelected">{{ plat }}</li>
+      </ul>
+    </div>
+  
+    <div *ngIf="dessertSelected?.length">
+      <h3 class="font-weight-bold text-warning">Desserts</h3>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let dessert of dessertSelected">{{ dessert }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-danger mx-2" (click)="cancelSelection()">Cancel</button>
+    <button class="btn btn-success mx-2" (click)="confirmSelection()">Confirm Selection</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="close()">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+</div>

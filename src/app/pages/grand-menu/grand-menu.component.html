@@ -1,1 +1,86 @@
-<p>grand-menu works!</p>
+<section class="position-relative">
+
+    <div class="blurry-background"></div>
+    <div class="container mt-5">
+        <h1 style="font-weight: bolder;">Grand Menu</h1>
+
+      <div class="card" style="border-radius: 1rem;">
+        <ul class="nav nav-tabs d-flex justify-content-center fw-bold" id="menuTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="salades-tab" data-bs-toggle="tab" data-bs-target="#salades"
+              type="button" role="tab" aria-controls="salades" aria-selected="true">Salades</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="plats-tab" data-bs-toggle="tab" data-bs-target="#plats"
+              type="button" role="tab" aria-controls="plats" aria-selected="false">Plats</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="desserts-tab" data-bs-toggle="tab" data-bs-target="#desserts"
+              type="button" role="tab" aria-controls="desserts" aria-selected="false">Desserts</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="menuTabContent">
+          <div class="tab-pane fade show active" id="salades" role="tabpanel" aria-labelledby="salades-tab">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let item of salades; let i = index">
+                <div class="card mb-4 shadow-sm">
+                  <img class="card-img-top" [src]="host + item.image.data.attributes.url" alt="Salade image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.titre }}</h5>
+                    <p class="card-text">{{ item.Description }}</p>
+                    <button class="btn btn-primary addButton" 
+                    (click)="toggleSelection('salades', i)"
+                      [class.btn-danger]="isItemSelected('salades', i)">
+                      {{ isItemSelected('salades', i) ? 'Cancel' : 'Select' }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="plats" role="tabpanel" aria-labelledby="plats-tab">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let item of plats; let i = index">
+                <div class="card mb-4 shadow-sm">
+                  <img class="card-img-top" [src]="host + item.image.data.attributes.url" alt="Plat image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.titre }}</h5>
+                    <p class="card-text">{{ item.Description }}</p>
+                          <button class="btn btn-primary addButton" 
+                      (click)="toggleSelection('plats', i)"
+                      [class.btn-danger]="isItemSelected('plats', i)">
+                      {{ isItemSelected('plats', i) ? 'Cancel' : 'Select' }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let item of desserts; let i = index">
+                <div class="card mb-4 shadow-sm">
+                  <img class="card-img-top" [src]="host + item.image.data.attributes.url" alt="Dessert image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.titre }}</h5>
+                    <p class="card-text">{{ item.Description }}</p>
+                    <button class="btn btn-primary addButton" 
+                      (click)="toggleSelection('desserts', i)"
+                      [class.btn-danger]="isItemSelected('desserts', i)">
+                      {{ isItemSelected('desserts', i) ? 'Cancel' : 'Select' }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center" id="submit">
+            <button class="btn btn-primary " (click)="submitForm()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

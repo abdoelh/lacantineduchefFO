@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SharedService } from './shared.service';
+import { GrandMenuService } from './grand-menu.service';
 
-describe('SharedService', () => {
-  let service: SharedService;
+describe('GrandMenuService', () => {
+  let service: GrandMenuService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SharedService);
+    service = TestBed.inject(GrandMenuService);
   });
 
   it('should be created', () => {

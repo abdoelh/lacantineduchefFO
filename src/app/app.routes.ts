@@ -1,9 +1,10 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { authGuard } from './guards/auth.guard';
 import { GrandMenuComponent } from './pages/grand-menu/grand-menu.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent},
@@ -15,3 +16,8 @@ export const routes: Routes = [
     { path: '**', redirectTo: 'login' } // Redirect all unknown routes to login
 
 ];
+@NgModule({
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+  })
+  export class AppRoutingModule {}

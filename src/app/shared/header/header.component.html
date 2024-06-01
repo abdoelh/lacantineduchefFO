@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  *ngIf="isLogged">
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="#">
@@ -15,21 +15,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item px-2">
-            <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
+            <a class="nav-link active fw-bold" aria-current="page" routerLink="/">Home</a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link active fw-bold" aria-current="page" href="grand-menu">Menu grand public</a>
+            <a class="nav-link active fw-bold" aria-current="page" routerLink="/grand-menu">Menu grand public</a>
           </li>
           <li class="nav-item px-2" >
-            <a class="nav-link active fw-bold" aria-current="page" href="menu">Menu Collectif</a>
+            <a class="nav-link active fw-bold" aria-current="page" routerLink="/menu">Menu Collectif</a>
           </li>
         </ul>
         
         <!-- User information -->
-        <div class="navbar-text fw-bold">
+        <div class="navbar-text fw-bold" >
           <span class="me-2">Welcome, Username</span>
           <a href="#" class="me-2"><i class="bi bi-person"></i></a> <!-- Replace with user icon -->
-          <a href="#" class="btn btn-outline-danger btn-sm">Logout</a>
+          <a href="#" class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</a>
         </div>
       </div>
     </div>

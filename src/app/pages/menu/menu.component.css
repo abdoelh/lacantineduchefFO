@@ -103,3 +103,12 @@
     margin-right: 10px;
   }
   
+  .addButton{
+    background-color: #1d7046b7;
+    width: 150px;
+    border: azure;
+  }
+  h5{
+    font-weight: bold;
+    font-size: 20px;
+}

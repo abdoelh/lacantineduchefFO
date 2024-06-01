@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from '../../../services/client.service';
-
-import { Client } from '../../model/client';
-import { SharedService } from '../../../services/shared.service';
 import { IsloggedinService } from '../../../services/isloggedin.service';
 
 @Component({
@@ -23,7 +20,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   clientIfo:any;
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private clientService: ClientService, private islogged: IsloggedinService, private sharedService: SharedService) {}
+  constructor(private formBuilder: FormBuilder,private router: Router, private clientService: ClientService, private islogged: IsloggedinService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -65,19 +62,20 @@ export class LoginComponent implements OnInit {
   verifyPassword(): void {
     if (this.client && this.client.password === this.loginForm.get('password')?.value) {
       console.log('Redirect now', this.client.organization.data.attributes.name);
-      if (typeof window !== 'undefined' && window.localStorage) {
         localStorage.setItem("user","1")
+        // localStorage.setItem("userId",this.clientIfo.id)
+        // localStorage.setItem("orgaId",this.client.organization.data.id)
 
-      }     
-     this.sendData();
-      this.router.navigate(['menu']); // Redirect to home on successful login
+      
+      console.log(this.client.organization.data.name)     
+    //  this.sendData();
+      this.islogged.setIsLoggedIn(true);
+      this.router.navigate(['menu'], {queryParams:{userId:this.clientIfo.id, orgaId:this.client.organization.data.id}}); // Redirect to home on successful login
 
     } else {
-      if (typeof window !== 'undefined' && window.localStorage) {
-        localStorage.setItem("user","0")
+      localStorage.setItem("user","0")
 
-      }
-      this.islogged.changeData(false); // Update shared service
+      this.islogged.setIsLoggedIn(false); // Update shared service
 
       console.log('OUPS');
     }
@@ -85,9 +83,6 @@ export class LoginComponent implements OnInit {
   sendBoolean() {
     this.islogged.changeData(true);
   }
-  sendData() {
-    const newValue =this.clientIfo;
-    this.sharedService.changeData(newValue);
-  }
+
   
 }
